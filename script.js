@@ -27,15 +27,40 @@ const btnGoShit = document.getElementById('goShit');
 function goShit() {
     ++weed;
     stWeed.innerHTML = weed;
+    information.innerHTML = `Рєшнув бошку, красава.`;
+    food -= 4;
+    stFood.innerHTML = food;
+    if (food <= 0) {
+        information.innerHTML = `ТИ ЗДОХ ОТ ГОЛОДА ДОВБОЙОБ! Граєм по новому <br> <br>
+         Ти бухав всю ніч. Ти Тудор і тобі дуже хуйово.<br> Ти намацав у себе в кармані пятку, вже непогано!`;
+        weed = 1;
+        stWeed.innerHTML = weed;
+        high = 0;
+        stHigh.innerHTML = high;
+        food = 80;
+        stFood.innerHTML = food;
+    }
 }
 function goHigh() {
-    if (weed) {
+    if (weed < 100 && weed) {
         --weed;
         high += Math.ceil(Math.random() * 10);
         stHigh.innerHTML = high;
         stWeed.innerHTML = weed;
-        food -= 20;
+        information.innerHTML = `Закашлявся кха кх... кхах..`;
+
+        food -= 10;
         stFood.innerHTML = food;
+        if (food <= 0) {
+            information.innerHTML = `ТИ ЗДОХ ОТ ГОЛОДА ДОВБОЙОБ! Граєм по новому <br> <br>
+             Ти бухав всю ніч. Ти Тудор і тобі дуже хуйово.<br> Ти намацав у себе в кармані пятку, вже непогано!`;
+            weed = 1;
+            stWeed.innerHTML = weed;
+            high = 0;
+            stHigh.innerHTML = high;
+            food = 80;
+            stFood.innerHTML = food;
+        }
     } else {
         information.innerHTML = `Шо ти тягнуть будеш? В тебе нема нічого, дурло!`;
     }
@@ -43,19 +68,21 @@ function goHigh() {
 function goFood() {
     if (food < 100) {
         food += 10;
+        information.innerHTML = `Яка ж тіки смакота та ти шоо`;
         if (food >= 100) {
             food = 100;
         }
         stFood.innerHTML = food;
+
+
+        high -=4;
+        if (high < 0) {
+            high = 0;
+        }
+        stHigh.innerHTML = high;
     } else {
         information.innerHTML = `Ти вже плотно похавав, хвате`;
     }
-
-    high -=10;
-    if (high < 0) {
-        high = 0;
-    }
-    stHigh.innerHTML = high;
 }
 
 
