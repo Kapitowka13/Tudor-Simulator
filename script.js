@@ -8,6 +8,10 @@ const textElementContent = textElement.innerHTML;
 console.log(textElementContent);
 //Заголовок
 
+//Информация
+const information = document.getElementById('information');
+//Информация
+
 //Статистика. Количество добра
 const stWeed = document.querySelector('.statWeed');
 const stHigh = document.querySelector('.statHigh');
@@ -30,13 +34,28 @@ function goHigh() {
         high += Math.ceil(Math.random() * 10);
         stHigh.innerHTML = high;
         stWeed.innerHTML = weed;
+        food -= 20;
+        stFood.innerHTML = food;
     } else {
-        alert("Шо ти тягнуть будеш? В тебе нема нічо")
+        information.innerHTML = `Шо ти тягнуть будеш? В тебе нема нічого, дурло!`;
     }
 }
 function goFood() {
-    food += 10;
-    stFood.innerHTML = food;
+    if (food < 100) {
+        food += 10;
+        if (food >= 100) {
+            food = 100;
+        }
+        stFood.innerHTML = food;
+    } else {
+        information.innerHTML = `Ти вже плотно похавав, хвате`;
+    }
+
+    high -=10;
+    if (high < 0) {
+        high = 0;
+    }
+    stHigh.innerHTML = high;
 }
 
 

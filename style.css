@@ -15,6 +15,10 @@ button:active {
     background-color: #387924;
 }
 
+table {
+    margin-top: 20px;
+}
+
 td {
     text-align: center;
 }
