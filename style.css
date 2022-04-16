@@ -1,0 +1,30 @@
+body {
+    background-color: #F8F8F8;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    letter-spacing: 0.04rem;
+}
+
+button {
+    width: 150px;
+    height: 50px;
+    border: 2px solid #387924;
+    font-size: 16px;
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+button:active {
+    background-color: #387924;
+}
+
+td {
+    text-align: center;
+}
+
+#weedImage {
+    width: 50px;
+}
+#highImage {
+    width: 50px;
+}
+#foodImage {
+    width: 50px;
+}
