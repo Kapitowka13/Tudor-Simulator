@@ -15,6 +15,9 @@ button:active {
     background-color: #387924;
 }
 
+.button {display: table;}
+.button2 {display: none;}
+
 table {
     margin-top: 20px;
 }
