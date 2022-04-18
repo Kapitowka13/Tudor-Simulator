@@ -183,18 +183,9 @@ function goShop() {
         money -= 30;
         stMoney.innerHTML = money;
     } else {
-        if (dolg < 1) {
-            information.innerHTML = `В тебе нехватає грошей, ти попросив записаця на хрестик (+10 weed  -30₴)`;
-            money -= 30;
-            stMoney.innerHTML = money;
-            weed += 10;
-            stWeed.innerHTML = weed;
-            ++dolg;
-        } else {
-            information.innerHTML = `Вона тебе більше не записує. Отдай долг! (-15 hungry)`;
-            food -= 15;
-            stFood.innerHTML = food;
-        }
+        information.innerHTML = `В тебе не вистачає грошей (- 10 hungry)`;
+        food -= 10;
+        stFood.innerHTML = food;
     }
     restart();
 }
