@@ -165,7 +165,7 @@ function goDeal() {
 function goShop() {
     weed += 10;
     stWeed.innerHTML = weed;
-    information.innerHTML = `Ти купив пачку бошок. За 30₴ (+10 weed  -50 hungry)`;
+    information.innerHTML = `Ти купив пачку бошок за 30₴ (+10 weed  -50 hungry)`;
     money -= 30;
     stMoney.innerHTML = money;
     food -= 50;
