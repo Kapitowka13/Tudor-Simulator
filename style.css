@@ -20,11 +20,19 @@ button:active {
     }
 }
 
+audio {
+    width: 100%;
+    height: 20px;
+    opacity: 0.8;
+}
+
 .button {display: table;}
 .button2 {display: none;}
 
 table {
+    margin: auto;
     margin-top: 20px;
+    text-align: center;
 }
 
 td {
