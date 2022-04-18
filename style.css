@@ -25,13 +25,9 @@ table {
 td {
     text-align: center;
 }
-
-#weedImage {
-    width: 50px;
+h6 {
+    margin-top: -5px;
 }
-#highImage {
-    width: 50px;
-}
-#foodImage {
+.icons {
     width: 50px;
 }

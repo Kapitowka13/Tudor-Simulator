@@ -1,6 +1,7 @@
 let weed = 1;
 let high = 0;
 let food = 80;
+let money = 32;
 
 //Заголовок
 const textElement = document.querySelector('.title');
@@ -13,9 +14,10 @@ const information = document.getElementById('information');
 //Информация
 
 //Статистика. Количество добра
-const stWeed = document.querySelector('.statWeed');
-const stHigh = document.querySelector('.statHigh');
-const stFood = document.querySelector('.statFood');
+const stWeed = document.getElementById('statWeed');
+const stHigh = document.getElementById('statHigh');
+const stFood = document.getElementById('statFood');
+const stMoney = document.getElementById('statMoney');
 //Статистика. Количество добра
 
 //Кнопки
@@ -42,6 +44,8 @@ function restart() {
         stHigh.innerHTML = high;
         food = 80;
         stFood.innerHTML = food;
+        money = 32;
+        stMoney.innerHTML = money;
     }
 } //РЕСТАРТ ИГРЫ
 function ifHigh() {
@@ -75,12 +79,8 @@ function secondButtons() {
     document.getElementsByClassName('button2')[3].style= "display: table";
 }//ВИДНО СЛЕДУЮЩИЕ ЧЕТЫРЕ КНОПКИ
 
-function goHome() {
-    information.innerHTML = `Ти прийшов додому`;
 
-    firstButtons();
-}
-
+/////////////////////////КНОПКИ 1
 function goShit() {
     --food;
     stFood.innerHTML = food;
@@ -122,26 +122,52 @@ function goFood() {
         information.innerHTML = `Ти вже плотно похавав, хвате`;
     }
 }
+function goHome() {
+    information.innerHTML = `Ти прийшов додому`;
+
+    firstButtons();
+}
+
+//////////////////////////////КНОПКИ 2
 function goKlad() {
-    ++weed;
-    stWeed.innerHTML = weed;
-    information.innerHTML = `Ти найшов в заброшкі священний коробок (+1 weed  -4 hungry)`;
-    food -= 4;
-    stFood.innerHTML = food;
+    let r = Math.ceil(Math.random() * 10);
+    if (r >= 5) {
+        ++weed;
+        stWeed.innerHTML = weed;
+        information.innerHTML = `Ти найшов в заброшкі священний коробок (+1 weed  -4 hungry)`;
+        food -= 4;
+        stFood.innerHTML = food;
+    } else {
+        weed -= 2;
+        stWeed.innerHTML = weed;
+        food -= 8;
+        stFood.innerHTML = food;
+        information.innerHTML = `Ти найшов пизди (-2 weed -8 hungry)`;
+    }
     restart();
 }
 function goDeal() {
-    weed += 3;
-    stWeed.innerHTML = weed;
-    information.innerHTML = `Snoop Dogg дав тобі нігерський блант (+3 weed  -15 hungry)`;
-    food -= 15;
-    stFood.innerHTML = food;
+    let r = Math.ceil(Math.random() * 10);
+    if (r >= 4) {
+        weed += 3;
+        stWeed.innerHTML = weed;
+        information.innerHTML = `Snoop Dogg дав тобі нігерський блант (+3 weed  -15 hungry)`;
+        food -= 15;
+        stFood.innerHTML = food;
+    } else {
+        information.innerHTML = `Snoop Dogg вистрелив в тебе з травмата (-30 hungry)`;
+        food -= 30;
+        stFood.innerHTML = food;
+    }
     restart();
 }
+
 function goShop() {
     weed += 10;
     stWeed.innerHTML = weed;
-    information.innerHTML = `Ти купив пачку бошок. Хто зна за які гроші (+10 weed  -50 hungry)`;
+    information.innerHTML = `Ти купив пачку бошок. За 30₴ (+10 weed  -50 hungry)`;
+    money -= 30;
+    stMoney.innerHTML = money;
     food -= 50;
     stFood.innerHTML = food;
     restart();
