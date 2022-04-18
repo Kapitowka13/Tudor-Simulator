@@ -5,7 +5,7 @@ body {
 }
 
 button {
-    width: 100%;
+    width: 150px;
     height: 50px;
     border: 2px solid #387924;
     font-size: 16px;
@@ -13,6 +13,11 @@ button {
 }
 button:active {
     background-color: #387924;
+}
+@media (max-width: 600px) {
+    button {
+        width: 100%;
+    }
 }
 
 .button {display: table;}
