@@ -37,7 +37,8 @@ const btnGoHome = document.getElementById('goHome');
 function restart() {
     if (food <= 0) {
         information.innerHTML = `ТИ ЗДОХ ОТ ГОЛОДА ДОВБОЙОБ! Граєм по новому <br> <br>
-         Ти бухав всю ніч. Ти Тудор і тобі дуже хуйово.<br> Ти намацав у себе в кармані пятку, вже непогано!`;
+        Ти бухав всю ніч. Ти Тудор і тобі дуже хуйово. 
+        Ти намацав у себе в кармані пятку і пару гривнів на рево, вже непогано!`;
 
          firstButtons();
 
@@ -91,7 +92,7 @@ function goShit() {
     secondButtons();
 }
 function goHigh() {
-    if (weed) {
+    if (weed > 0) {
         --weed;
         high += Math.ceil(Math.random() * 10);
         stHigh.innerHTML = high;
@@ -101,6 +102,8 @@ function goHigh() {
         food -= 10;
         stFood.innerHTML = food;
         restart();
+    } else if (weed < 0) {
+        information.innerHTML = `Які тянуть? У тебе нема нічого ше плюс должен комусь`;
     } else {
         information.innerHTML = `Шо ти тягнуть будеш? В тебе нема нічого, дурло!`;
     }
