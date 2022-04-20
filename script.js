@@ -5,12 +5,6 @@ let money = 32;
 let dolg = 0;
 let sell;
 
-//Заголовок
-const textElement = document.querySelector('.title');
-const textElementContent = textElement.innerHTML;
-console.log(textElementContent);
-//Заголовок
-
 //Информация
 const information = document.getElementById('information');
 //Информация
@@ -68,6 +62,8 @@ function firstButtons() {
     document.getElementsByClassName('button')[0].style= "display: table";
     document.getElementsByClassName('button')[1].style= "display: table";
     document.getElementsByClassName('button')[2].style= "display: table";
+    document.getElementsByClassName('button')[3].style= "display: table";
+
     document.getElementsByClassName('button2')[0].style= "display: none";
     document.getElementsByClassName('button2')[1].style= "display: none";
     document.getElementsByClassName('button2')[2].style= "display: none";
@@ -77,6 +73,8 @@ function secondButtons() {
     document.getElementsByClassName('button')[0].style= "display: none";
     document.getElementsByClassName('button')[1].style= "display: none";
     document.getElementsByClassName('button')[2].style= "display: none";
+    document.getElementsByClassName('button')[3].style= "display: none";
+
     document.getElementsByClassName('button2')[0].style= "display: table";
     document.getElementsByClassName('button2')[1].style= "display: table";
     document.getElementsByClassName('button2')[2].style= "display: table";
@@ -85,7 +83,7 @@ function secondButtons() {
 
 /////////////////////////КНОПКИ 1
 function goShit() {
-    --food;
+    food -= 2;
     stFood.innerHTML = food;
     information.innerHTML = `Ти вийшов на вулицю. Шо думаєш робить далі, куди підем?`;
 
@@ -107,6 +105,7 @@ function goHigh() {
     } else {
         information.innerHTML = `Шо ти тягнуть будеш? В тебе нема нічого, дурло!`;
     }
+    ifHigh();
 }
 function goFood() {
     if (food < 100) {
@@ -131,18 +130,38 @@ function goHust() {
     sell = prompt("Кіко продать хочеш? Введи кількість від 1 до 5", []);
     if (sell && sell <= 5) {
         if (weed >= sell) {
-            let sellMoney = sell * 10;
-            information.innerHTML = `Ти успішно продав ${sell} грамів  (+ ${sellMoney}₴)`;
-            money += sellMoney;
-            stMoney.innerHTML = money;
-            weed -= sell;
-            stWeed.innerHTML = weed;
+            let r = Math.ceil(Math.random() * 10);
+            if (r <= 4) {
+                let sellMoney = sell * 10;
+                information.innerHTML = `Ти успішно продав ${sell} грамів  (+ ${sellMoney}₴)`;
+                money += sellMoney;
+                stMoney.innerHTML = money;
+                weed -= sell;
+                stWeed.innerHTML = weed;
+            } else {
+                if (money >= r) {
+                    information.innerHTML = `Тебе отпиздили за таку хуйню і забрали всю траву яку ти взяв і пару гривень. (-20 hungry -${sell} грам -${r}₴)`;
+                    weed -= sell;
+                    stWeed.innerHTML = weed;
+                    food -= 20;
+                    stFood.innerHTML = food;
+                    money -= r;
+                    stMoney.innerHTML = money;
+                } else {
+                    information.innerHTML = `Тебе отпиздили за таку хуйню і забрали всю траву яку ти взяв і пару гривень. (-20 hungry -${sell} грам)`;
+                    weed -= sell;
+                    stWeed.innerHTML = weed;
+                    food -= 20;
+                    stFood.innerHTML = food;
+                }
+            }
         } else {
             information.innerHTML = `В тебе нема скіко, тупка.`;
         }
     } else {
         information.innerHTML = `Можна продавати лише від 1 до 5 грамів`;
     }
+    restart();
 }
 
 //////////////////////////////КНОПКИ 2
@@ -193,6 +212,8 @@ function goShop() {
     restart();
 }
 function goHome() {
+    food -= 2;
+    stFood.innerHTML = food;
     information.innerHTML = `Ти прийшов додому`;
 
     firstButtons();
