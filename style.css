@@ -1,16 +1,19 @@
 body {
-    background-color: #F8F8F8;
+    background-color: #f8f8f8;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     letter-spacing: 0.04rem;
 }
 
 button {
+    color: #fff;
     margin-top: 1px;
     width: 150px;
     height: 50px;
     border: 2px solid #387924;
+    background-color: #3e8a27c0;
     font-size: 16px;
     font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    border-radius: 8px;
 }
 button:active {
     background-color: #387924;
