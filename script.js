@@ -105,8 +105,8 @@ function ifBurr() {
 }//Проверка на burr
 function ifDays() {
     days += 0.2;
-    if (days >= 30) {
-        if(burian < 100) {
+    if (days == 30) {
+        if (burian < 100) {
             information.innerHTML = `Батьки приїхали і дали пизди за те шо город не убраний!<br>Ти здох от крепкого ляща. Граємо по новому!`;
             firstButtons();
 
@@ -120,7 +120,6 @@ function ifDays() {
             stMoney.innerHTML = money;
             burian = 0;
             ifBurr();
-            days = 0;
         } else {
             information.innerHTML = `Батьки приїхали і не дали пизди. Празнуєм!!!Тепер треба думать як c'їбаця нахуй звідси<br>+200<img id="miniMoney" src="money.png">`;
             money +=200;

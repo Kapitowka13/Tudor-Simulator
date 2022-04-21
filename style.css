@@ -37,6 +37,10 @@ button:active {
         width: 100%;
     }
 }
+#goShit {
+    background-color: rgb(253, 152, 0);
+    border: 2px solid rgb(255, 123, 0);
+}
 
 audio {
     width: 99.4%;
