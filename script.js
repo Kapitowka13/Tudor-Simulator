@@ -258,7 +258,6 @@ function goBurr() {
         food -= 20;
         stFood.innerHTML = food;
     }
-    ++days;
     ifBurr();
     restart();
     ifDays();
