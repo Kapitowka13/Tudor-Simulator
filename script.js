@@ -3,8 +3,8 @@ let high = 0;
 let food = 80;
 let money = 32;
 let sell;
-let burian = 90;
-let days = 29;
+let burian = 0;
+let days = 0;
 
 //Информация
 const information = document.getElementById('information');
